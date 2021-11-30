@@ -15,10 +15,6 @@ const baseScrollbar = css`
   border-right: 1px solid rgba(0, 0, 0, 0.12);
 `;
 
-const Scrollbar = styled.div`
-  ${baseScrollbar}
-`;
-
 const PerfectScrollbar = styled(ReactPerfectScrollbar)`
   ${baseScrollbar}
 `;
