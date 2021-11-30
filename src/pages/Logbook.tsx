@@ -1,11 +1,9 @@
 import React from "react";
 import styled from "styled-components/macro";
-import { NavLink } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 
 import {
   Box,
-  Breadcrumbs as MuiBreadcrumbs,
   Button,
   Checkbox,
   Chip as MuiChip,
