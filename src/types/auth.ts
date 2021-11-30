@@ -51,6 +51,7 @@ export type FirebaseAuthContextType = {
     lastName: string
   ) => Promise<void>;
   signInWithGoogle: () => Promise<firebase.auth.UserCredential>;
+  signInWithGoogleRedirect: () => Promise<void>;
   signInWithFaceBook: () => Promise<firebase.auth.UserCredential>;
   signInWithTwitter: () => Promise<firebase.auth.UserCredential>;
   signOut: () => Promise<void>;

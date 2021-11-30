@@ -1,6 +1,5 @@
 import * as React from "react";
 import styled, { withTheme } from "styled-components/macro";
-import { useTranslation } from "react-i18next";
 
 import {
   Grid,
@@ -32,7 +31,6 @@ type NavbarProps = {
 };
 
 const Navbar: React.FC<NavbarProps> = ({ onDrawerToggle }) => {
-  const { t } = useTranslation();
   return (
     <React.Fragment>
       <AppBar position="sticky" elevation={0}>

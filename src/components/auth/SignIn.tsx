@@ -27,24 +27,12 @@ function SignIn() {
 
   const googleButtonClicked = () => {
     signInWithGoogle().then((result) => {
-      /** @type {firebase.auth.OAuthCredential} */
-      // const credential = result.credential as firebase.auth.OAuthCredential;
-      // const token = credential.accessToken;
       const user = result.user;
       if (user && user.uid) {
         localStorage.setItem("isLogin", "yes");
         navigate("/inbox");
       }
     });
-    // .catch((error) => {
-    //   // Handle Errors here.
-    //   const errorCode = error.code;
-    //   const errorMessage = error.message;
-    //   // The email of the user's account used.
-    //   const email = error.email;
-    //   // The firebase.auth.AuthCredential type that was used.
-    //   const credential = error.credential;
-    // });
   };
 
   return (

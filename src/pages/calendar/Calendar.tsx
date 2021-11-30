@@ -1,18 +1,15 @@
 import React from "react";
 import styled from "styled-components/macro";
-import { NavLink } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import interactionPlugin from "@fullcalendar/interaction";
 
 import {
-  Breadcrumbs as MuiBreadcrumbs,
   Card as MuiCard,
   CardContent as MuiCardContent,
   Divider as MuiDivider,
   Grid,
-  Link,
   Typography,
 } from "@mui/material";
 import { spacing } from "@mui/system";
@@ -29,8 +26,6 @@ const Card = styled(MuiCard)(spacing);
 const CardContent = styled(MuiCardContent)(spacing);
 
 const Divider = styled(MuiDivider)(spacing);
-
-const Breadcrumbs = styled(MuiBreadcrumbs)(spacing);
 
 function EmptyCard() {
   return (

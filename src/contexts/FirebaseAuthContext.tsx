@@ -17,6 +17,7 @@ import {
   AuthUser,
 } from "../types/auth";
 import { firebaseConfig } from "../config";
+import { useNavigate } from "react-router-dom";
 
 const INITIALIZE = "INITIALIZE";
 
@@ -63,6 +64,56 @@ function AuthProvider({ children }: { children: ReactNode }) {
   >();
   const [state, dispatch] = useReducer(reducer, initialState);
 
+  // const googleSignInRedirect = () => () => {
+  //   firebase
+  //     .auth()
+  //     .getRedirectResult()
+  //     .then((result) => {
+  //       if (result.credential) {
+  //         const user = result.user;
+  //         if (user) {
+  //           console.log(user);
+  //           const docRef = firebase
+  //             .firestore()
+  //             .collection("users")
+  //             .doc(user.uid);
+  //           docRef
+  //             .get()
+  //             .then((doc) => {
+  //               if (doc.exists) {
+  //                 setProfile(doc.data());
+  //               }
+  //             })
+  //             .catch((error) => {
+  //               console.error(error);
+  //             });
+  //           localStorage.setItem("isLogin", "yes");
+  //           navigate("/inbox");
+  //           dispatch({
+  //             type: INITIALIZE,
+  //             payload: { isAuthenticated: true, user },
+  //           });
+  //         } else {
+  //           localStorage.removeItem("isLogin");
+  //           dispatch({
+  //             type: INITIALIZE,
+  //             payload: { isAuthenticated: false, user: null },
+  //           });
+  //         }
+  //       } else {
+  //         const provider = new firebase.auth.GoogleAuthProvider();
+  //
+  //         // provider.addScope("https://www.googleapis.com/auth/gmail.readonly");
+  //         // provider.addScope("https://www.googleapis.com/auth/calendar");
+  //         // provider.addScope("https://www.googleapis.com/auth/drive");
+  //         // provider.addScope("https://www.googleapis.com/auth/drive.appdata");
+  //         // provider.addScope("https://www.googleapis.com/auth/drive.file");
+  //
+  //         return firebase.auth().signInWithRedirect(provider);
+  //       }
+  //     });
+  // };
+
   useEffect(
     () =>
       firebase.auth().onAuthStateChanged((user) => {
@@ -91,6 +142,7 @@ function AuthProvider({ children }: { children: ReactNode }) {
           });
         }
       }),
+
     [dispatch]
   );
 
@@ -103,6 +155,11 @@ function AuthProvider({ children }: { children: ReactNode }) {
       prompt: "select_account",
     });
     return firebase.auth().signInWithPopup(provider);
+  };
+
+  const signInWithGoogleRedirect = () => {
+    const provider = new firebase.auth.GoogleAuthProvider();
+    return firebase.auth().signInWithRedirect(provider);
   };
 
   const signInWithFaceBook = () => {
@@ -143,7 +200,6 @@ function AuthProvider({ children }: { children: ReactNode }) {
   const resetPassword = async (email: string) => {
     await firebase.auth().sendPasswordResetEmail(email);
   };
-
   const auth = { ...state.user };
   return (
     <AuthContext.Provider
@@ -160,6 +216,7 @@ function AuthProvider({ children }: { children: ReactNode }) {
         signIn,
         signUp,
         signInWithGoogle,
+        signInWithGoogleRedirect,
         signInWithFaceBook,
         signInWithTwitter,
         signOut,
