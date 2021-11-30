@@ -5,3 +5,9 @@ export type User = {
   password: string;
   avatar: File | any;
 };
+
+// export type User = {
+//   id: string;
+//   userName: string;
+//   email: string;
+// };
