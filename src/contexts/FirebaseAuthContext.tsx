@@ -17,7 +17,6 @@ import {
   AuthUser,
 } from "../types/auth";
 import { firebaseConfig } from "../config";
-import { useNavigate } from "react-router-dom";
 
 const INITIALIZE = "INITIALIZE";
 
