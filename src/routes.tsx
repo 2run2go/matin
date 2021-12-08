@@ -9,8 +9,6 @@ import AuthLayout from "./layouts/Auth";
 import DashboardLayout from "./layouts/Dashboard";
 import AuthGuard from "./components/guards/AuthGuard";
 import SignIn from "./pages/auth/SignIn";
-import SignUp from "./pages/auth/SignUp";
-import ResetPassword from "./pages/auth/ResetPassword";
 import Page404 from "./pages/auth/Page404";
 import Page500 from "./pages/auth/Page500";
 import Logbook from "./pages/Logbook";
@@ -78,14 +76,6 @@ const routes = [
       {
         path: "sign-in",
         element: <SignIn />,
-      },
-      {
-        path: "sign-up",
-        element: <SignUp />,
-      },
-      {
-        path: "reset-password",
-        element: <ResetPassword />,
       },
       {
         path: "404",
