@@ -1,3 +1,4 @@
+//style
 import { createGlobalStyle } from "styled-components/macro";
 import { GlobalStyleProps } from "../types/styles";
 
