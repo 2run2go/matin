@@ -64,7 +64,7 @@ function SignIn() {
           <div>
             <GoogleButton
               style={{ display: "block", margin: "auto" }}
-              // type="light"
+              // type="light1111"
               onClick={() => {
                 googleButtonClicked();
               }}
